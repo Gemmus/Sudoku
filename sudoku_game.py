@@ -13,10 +13,34 @@ background_color = (255, 255, 255)
 #   Calling the API   #
 #######################
 
-response = requests.get("https://sugoku.herokuapp.com/board?difficulty=medium")
-# Available difficulties: easy, medium, hard, random
-grid = response.json()['board']
-grid_original = [[grid[x][y] for y in range(len(grid[0]))] for x in range(len(grid))]
+url = "https://sudoku-generator1.p.rapidapi.com/sudoku/generate"
+api_key = ""
+
+# querystring = {"seed":"1337"}
+# querystring = {"seed":"1337", "difficulty":"easy}
+# querystring = {"seed":"1337", "difficulty":"medium"}
+querystring = {"seed":"1337", "difficulty":"hard"}
+
+headers = {"X-RapidAPI-Key": api_key,
+           "X-RapidAPI-Host": "sudoku-generator1.p.rapidapi.com"}
+
+# response = requests.get(url, headers=headers, params=querystring)
+
+# grid = response.json()['puzzle']
+grid = "...46.....8.2..73.9....7...6....2.4..15...2.9.4...8........6..17....49.3..9...5.."
+print(grid)
+
+# grid_original = [[0 for x in range(9)] for y in range(9)]
+# for i in range(0, 9):
+#     for j in range(0, 9):
+#         if grid[9*i+j].isdigit():
+#             grid_original[i][j] = int(grid[9*i+j])
+#         else:
+#             grid_original[i][j] = 0
+
+grid_original = [[0, 0, 0, 4, 6, 0, 0, 0, 0], [0, 8, 0, 2, 0, 0, 7, 3, 0], [9, 0, 0, 0, 0, 7, 0, 0, 0], [6, 0, 0, 0, 0, 2, 0, 4, 0], [0, 1, 5, 0, 0, 0, 2, 0, 9], [0, 4, 0, 0, 0, 8, 0, 0, 0], [0, 0, 0, 0, 0, 6, 0, 0, 1], [7, 0, 0, 0, 0, 4, 9, 0, 3], [0, 0, 9, 0, 0, 0, 5, 0, 0]]
+
+print(grid_original)
 
 
 def main():
@@ -54,6 +78,20 @@ def main():
     ##########################################
     #   Placing the Numbers into the Grids   #
     ##########################################
+
+    my_font = pygame.font.SysFont('arial', 35)
+
+    for i in range(9):
+        for ii in range(9):
+            if 0 < grid_original[i][ii] < 10:
+                value = my_font.render(str(grid[9*i+ii]), 1, (0, 0, 0))
+                win.blit(value, ((ii + 1) * 50 + 15, (i + 1) * 50 + 15))
+
+    pygame.display.update()
+
+    ########################
+    #   Quiting the game   #
+    ########################
 
     while True:
         for event in pygame.event.get():
