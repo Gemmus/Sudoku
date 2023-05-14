@@ -60,12 +60,38 @@ def insert(win, position):
                 return
             if event.type == pygame.KEYDOWN:
                 if 0 < x < 10 and 0 < y < 10:
-                    print(grid_original[y-1][x-1])
+                    # print(grid_original[y-1][x-1])
                     if grid_original[y-1][x-1] != 0:
                         return
                     else:
-                        print('else', event.key)
-                        return
+                        if event.key == pygame.K_1 or event.key == pygame.K_KP1:
+                            print('1')
+                            return
+                        if event.key == pygame.K_2 or event.key == pygame.K_KP2:
+                            print('2')
+                            return
+                        if event.key == pygame.K_3 or event.key == pygame.K_KP3:
+                            print('3')
+                            return
+                        if event.key == pygame.K_4 or event.key == pygame.K_KP4:
+                            print('4')
+                            return
+                        if event.key == pygame.K_5 or event.key == pygame.K_KP5:
+                            print('5')
+                            return
+                        if event.key == pygame.K_6 or event.key == pygame.K_KP6:
+                            print('6')
+                            return
+                        if event.key == pygame.K_7 or event.key == pygame.K_KP7:
+                            print('7')
+                            return
+                        if event.key == pygame.K_8 or event.key == pygame.K_KP8:
+                            print('8')
+                            return
+                        if event.key == pygame.K_9 or event.key == pygame.K_KP9:
+                            print('9')
+                            return
+
 
                 #if event.type == pygame.KEYDOWN:
                 #    print(event.key)
@@ -103,8 +129,8 @@ def main():
     #########################
 
     pygame.font.init()
-    font = pygame.font.SysFont('arial', 40, bold=False)
-    game_label = font.render('SUDOKU', 1, (0, 0, 0))
+    title_font = pygame.font.SysFont('arial', 40, bold=False)
+    game_label = title_font.render('SUDOKU', 1, (0, 0, 0))
 
     win.blit(game_label, (width / 2 - game_label.get_width() / 2 + 26, 12))
 
