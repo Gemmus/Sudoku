@@ -37,7 +37,7 @@ for i in range(0, 9):
 
 
 ######################################
-#   Function for drawing the title   #
+#   Function for Drawing the Title   #
 ######################################
 
 def draw_title(win):
@@ -49,7 +49,7 @@ def draw_title(win):
 
 
 #######################################
-#   Function for creating the grids   #
+#   Function for Creating the Grids   #
 #######################################
 
 def draw_grid(win):
@@ -63,7 +63,7 @@ def draw_grid(win):
 
 
 #######################################################
-#   Function for placing the Numbers into the Grids   #
+#   Function for Placing the Numbers into the Grids   #
 #######################################################
 
 def place_numbers(win):
@@ -79,7 +79,7 @@ def place_numbers(win):
 
 
 ################################
-#   Function for click event   #
+#   Function for Click Event   #
 ################################
 
 def insert(win, position):
