@@ -16,7 +16,7 @@ y_tuning = 4
 #######################
 
 url = "https://sudoku-generator1.p.rapidapi.com/sudoku/generate"
-api_key = "" # add own
+api_key = ""  # add own
 
 querystring = {"difficulty":"hard"}  # examples: {"seed":"1337", "difficulty":"medium"}, difficulties: easy, medium, hard
 
