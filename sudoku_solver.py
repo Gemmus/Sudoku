@@ -26,29 +26,29 @@ def find_empty(sudoku):
     for i in range(len(sudoku)):
         for ii in range(len(sudoku[0])):
             if sudoku[i][ii] == 0:
-                print(f'\n{i,ii}')
                 return i, ii
     return None
 
 
 def valid(sudoku, number, position):
+    # Check row
     for i in range(len(sudoku[0])):
         if sudoku[position[0]][i] == number and position[1] != i:
             return False
 
+    # Check column
     for i in range(len(sudoku)):
         if sudoku[i][position[1]] == number and position[0] != i:
             return False
 
+    # Check box
     box_x = position[1] // 3
-
-    # print(box_x)
     box_y = position[0] // 3
-    # print(box_x)
     for i in range(box_y * 3, box_y * 3 + 3):
         for ii in range(box_x * 3, box_x * 3 + 3):
             if sudoku[i][ii] == number and (i, ii) != position:
                 return False
+    return True
 
 
 def solve(sudoku):
