@@ -26,7 +26,9 @@ def find_empty(sudoku):
     for i in range(len(sudoku)):
         for ii in range(len(sudoku[0])):
             if sudoku[i][ii] == 0:
+                print(f'\n{i,ii}')
                 return i, ii
+    return None
 
 
 def valid(sudoku, number, position):
@@ -38,5 +40,36 @@ def valid(sudoku, number, position):
         if sudoku[i][position[1]] == number and position[0] != i:
             return False
 
+    box_x = position[1] // 3
 
+    # print(box_x)
+    box_y = position[0] // 3
+    # print(box_x)
+    for i in range(box_y * 3, box_y * 3 + 3):
+        for ii in range(box_x * 3, box_x * 3 + 3):
+            if sudoku[i][ii] == number and (i, ii) != position:
+                return False
+
+
+def solve(sudoku):
+    find = find_empty(sudoku)
+    if not find:
+        return True
+    else:
+        row, column = find
+
+    for i in range(1, 10):
+        if valid(sudoku, i, (row, column)):
+            puzzle[row][column] = i
+
+            if solve(puzzle):
+                return True
+
+            puzzle[row][column] = 0
+    return False
+
+
+print_sudoku(puzzle)
+solve(puzzle)
+print('\n')
 print_sudoku(puzzle)
