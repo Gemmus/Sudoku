@@ -11,9 +11,9 @@ background_color = (255, 255, 255)
 x_tuning = 3.5
 y_tuning = 4
 
-#######################
-#   Calling the API   #
-#######################
+######################
+#   Example Sudoku   #
+######################
 
 grid = '1.4....7.......81.........44.1..87...6...3....9.6....27....659.38..9.6..9..31....'
 
@@ -26,7 +26,6 @@ grid_original = [[1, 0, 4, 0, 0, 0, 0, 7, 0],
                  [7, 0, 0, 0, 0, 6, 5, 9, 0],
                  [3, 8, 0, 0, 9, 0, 6, 0, 0],
                  [9, 0, 0, 3, 1, 0, 0, 0, 0]]
-
 
 grid_for_computer = copy.deepcopy(grid_original)
 grid_for_player = copy.deepcopy(grid_original)
